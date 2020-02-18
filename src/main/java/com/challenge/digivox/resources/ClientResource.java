@@ -24,31 +24,31 @@ public class ClientResource {
 	@Autowired
 	ClientServices ClientServices;
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/clients")
 	public List<Client> listClients(){
 		return ClientServices.findAll();
 	}
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/client/{id}")
 	public Optional<Client> listClients(@PathVariable(value="id")long id){
 		return ClientServices.findById(id);
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@PostMapping("/client")
 	public Client saveClient(@RequestBody Client book) {
 		return ClientServices.save(book);
 		
 	}			
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@DeleteMapping("/client/{id}")
 	public void deleteBooks(@PathVariable(value="id")long id){
 		ClientServices.delete(id);
 	}
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@PutMapping("/client")
 	public Client updateBook(@RequestBody Client client) {
 		return ClientServices.save(client);

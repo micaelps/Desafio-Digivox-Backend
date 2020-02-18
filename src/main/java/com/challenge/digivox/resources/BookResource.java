@@ -25,22 +25,22 @@ public class BookResource {
 	@Autowired
 	BookServices BookServices;
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/books")
 	public List<Book> listBooks(){
 		return BookServices.findAll();
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/book/{id}")
 	public Optional<Book> listBooks(@PathVariable(value="id")long id){
 		return BookServices.findById(id);
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@PostMapping("/book")
 	public Book saveBook(@RequestBody Book book) {
 		return BookServices.save(book);
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@DeleteMapping("/book/{id}")
 	public void deleteBooks(@PathVariable(value="id")long id){
 		BookServices.delete(id);

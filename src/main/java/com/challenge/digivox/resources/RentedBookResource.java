@@ -23,25 +23,25 @@ public class RentedBookResource {
 	@Autowired
 	RentedBooksServices RentedBooksServices;
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/rented_books")
 	public List<RentedBook> listRentedBooks(){
 		return RentedBooksServices.findAll();
 	}
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/rented_book/{id}")
 	public Optional<RentedBook> listRentedBooks(@PathVariable(value="id")long id){
 		return RentedBooksServices.findById(id);
 	}
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@PostMapping("/rented_book")
 	public RentedBook saveRentedBook(@RequestBody RentedBook rentedBook) {
 		return RentedBooksServices.save(rentedBook);
 	}
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@DeleteMapping("/rented_book/{id}")
 	public void deleteRentedBooks(@PathVariable(value="id")long id){
 		RentedBooksServices.delete(id);

@@ -24,22 +24,22 @@ public class ReservedBookResource {
 	@Autowired
 	ReservedBooksServices ReservedBooksServices;
 	
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/reserved_books")
 	public List<ReservedBook> listReservedBooks(){
 		return ReservedBooksServices.findAll();
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@GetMapping("/reserved_book/{id}")
 	public Optional<ReservedBook> listReservedBooks(@PathVariable(value="id")long id){
 		return ReservedBooksServices.findById(id);
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@PostMapping("/reserved_book")
 	public ReservedBook saveReserverBook(@RequestBody ReservedBook reservedBook) {
 		return ReservedBooksServices.save(reservedBook);
 	}
-	@CrossOrigin
+	@CrossOrigin(origins = "*", allowedHeaders="*")
 	@DeleteMapping("/reserved_book/{id}")
 	public void deleteReservedBooks(@PathVariable(value="id")long id){
 		ReservedBooksServices.delete(id);
